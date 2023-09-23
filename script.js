@@ -5,8 +5,7 @@ async function buscaEndereco(cep) {
     var consultaCEP = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
     var consultaCEPConvertida = await consultaCEP.json();
     if (consultaCEPConvertida.erro) {
-      throw Error("CEP NAO EXISTENTE");
-    }
+      throw Error("CEP NAO EXISTENTE");  }
 
     var cidade = document.getElementById("cidade");
     var logradouro = document.getElementById("endereco");
@@ -22,9 +21,7 @@ async function buscaEndereco(cep) {
     return consultaCEPConvertida;
   } catch (erro) {
     mensagemErro.innerHTML = `<H2>CEP INVÁLIDO. ${cep} NÃO EXISTE</H2>`;
-    console.log(erro);
-  }
-}
+    console.log(erro);  }}
 
 var cep = document.getElementById("cep");
 cep.addEventListener("focusout", () => buscaEndereco(cep.value));
